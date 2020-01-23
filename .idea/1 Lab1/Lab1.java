@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /*
   Name: Chikweze Chukwubuikem
   Student ID: 31531764
@@ -10,12 +12,19 @@
     3. Of each appearance of a character in String a, the element in charFrequency is increased by 1
     4. Of each appearance of a character in String a, the element in charFrequency is
         decreased by 1 thus keeping all the values of charFrequency at 0.
+   	5.If at the end the values of all the elements of charFrequency array is 0, then return true
+  Second method: isRotation
+  	1. a.length() == b.length() checks if a and b are of the same length
+  	2. (a + a).contains(b) is always true if b is part of the string (a+a). This is because (a+a) includes every rotation of the string (a)
 
-
+	References: https://youtu.be/yIPBkaa8nkA
  */
-public class Lab1{
+public class lab{
 
     public static boolean isAnagram(String a, String b){
+    	a = a.toLowerCase();
+    	b = b.toLowerCase();
+    	
         if(a.length() != b.length()){
             return false;
         }
@@ -47,8 +56,10 @@ public class Lab1{
     }
 
     public static void main(String[] args){
-        String a = args[0];
-        String b = args[1];
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter two strings");
+        String a =  s.next();
+        String b =  s.next();
 
         if(isAnagram(a,b)){
             System.out.println("An anagram");
